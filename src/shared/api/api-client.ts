@@ -56,7 +56,8 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
 }
 
 export const apiClient = {
-  get: <T>(path: string, query?: Record<string, unknown>) => apiRequest<T>(path, { query }),
+  get: <T>(path: string, query?: Record<string, unknown>) =>
+    apiRequest<T>(path, query ? { query } : {}),
   post: <T>(path: string, body?: unknown) => apiRequest<T>(path, { method: "POST", body }),
   patch: <T>(path: string, body?: unknown) => apiRequest<T>(path, { method: "PATCH", body }),
   delete: <T>(path: string) => apiRequest<T>(path, { method: "DELETE" }),
