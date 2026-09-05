@@ -55,7 +55,12 @@ export function DataTable<T>({
   errorDescription,
 }: DataTableProps<T>) {
   if (isError) {
-    return <ErrorState onRetry={onRetry} {...(errorDescription ? { description: errorDescription } : {})} />;
+    return (
+      <ErrorState
+        {...(onRetry ? { onRetry } : {})}
+        {...(errorDescription ? { description: errorDescription } : {})}
+      />
+    );
   }
 
   if (isLoading) {
