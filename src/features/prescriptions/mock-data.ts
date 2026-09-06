@@ -1,0 +1,81 @@
+import type { Prescription } from "./types";
+
+/** Fictional demo records only — never real patient data. */
+export const prescriptionSeed: Prescription[] = [
+  {
+    id: "prx-001",
+    reference: "RX-2026-001",
+    patientId: "pat-001",
+    doctorId: "doc-001",
+    consultationId: "cns-001",
+    issuedAt: "2026-08-24",
+    items: [
+      { medication: "Paracetamol", dosage: "1 g", frequency: "3× per day", durationDays: 5 },
+      { medication: "Magnesium B6", dosage: "1 tablet", frequency: "2× per day", durationDays: 30 },
+    ],
+    instructions: "Take after meals with a full glass of water.",
+    status: "active",
+  },
+  {
+    id: "prx-002",
+    reference: "RX-2026-002",
+    patientId: "pat-002",
+    doctorId: "doc-002",
+    consultationId: "cns-002",
+    issuedAt: "2026-08-27",
+    items: [
+      { medication: "Salbutamol inhaler", dosage: "2 puffs", frequency: "As needed", durationDays: 60 },
+    ],
+    instructions: "Use 15 minutes before physical activity.",
+    status: "active",
+  },
+  {
+    id: "prx-003",
+    reference: "RX-2026-003",
+    patientId: "pat-003",
+    doctorId: "doc-003",
+    consultationId: "cns-003",
+    issuedAt: "2026-09-01",
+    items: [
+      { medication: "Betamethasone cream", dosage: "Thin layer", frequency: "2× per day", durationDays: 7 },
+      { medication: "Cetirizine", dosage: "10 mg", frequency: "1× per day", durationDays: 7 },
+    ],
+    instructions: "Avoid contact with the suspected irritant.",
+    status: "completed",
+  },
+  {
+    id: "prx-004",
+    reference: "RX-2026-004",
+    patientId: "pat-004",
+    doctorId: "doc-001",
+    consultationId: "cns-004",
+    issuedAt: "2026-09-03",
+    items: [{ medication: "Ibuprofen", dosage: "400 mg", frequency: "3× per day", durationDays: 4 }],
+    instructions: "Stop if stomach discomfort appears.",
+    status: "active",
+  },
+  {
+    id: "prx-005",
+    reference: "RX-2026-005",
+    patientId: "pat-006",
+    doctorId: "doc-005",
+    consultationId: "cns-006",
+    issuedAt: "2026-09-05",
+    items: [
+      { medication: "Diclofenac gel", dosage: "Local application", frequency: "3× per day", durationDays: 10 },
+    ],
+    instructions: "Combine with physiotherapy sessions.",
+    status: "active",
+  },
+  {
+    id: "prx-006",
+    reference: "RX-2026-006",
+    patientId: "pat-007",
+    doctorId: "doc-004",
+    consultationId: "",
+    issuedAt: "2026-08-18",
+    items: [{ medication: "Vitamin D3", dosage: "1000 IU", frequency: "1× per day", durationDays: 90 }],
+    instructions: "Yearly supplementation.",
+    status: "cancelled",
+  },
+];
