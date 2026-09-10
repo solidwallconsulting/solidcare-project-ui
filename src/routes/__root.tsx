@@ -77,11 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "SolidCare — Clinic Management System" },
+      {
+        name: "description",
+        content:
+          "SolidCare helps clinics manage patients, appointments, consultations, prescriptions and payments in one workspace.",
+      },
+      { name: "author", content: "SolidCare" },
+      { property: "og:title", content: "SolidCare — Clinic Management System" },
+      {
+        property: "og:description",
+        content: "Run your clinic: patients, appointments, consultations, prescriptions, payments.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
