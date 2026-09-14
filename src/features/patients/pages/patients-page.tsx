@@ -43,6 +43,7 @@ import { patientsApi, patientKeys } from "@/features/patients/api";
 import { PatientFormDialog } from "@/features/patients/components/patient-form-dialog";
 import type { Patient, PatientFormValues, PatientStatus } from "@/features/patients/types";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 import { calculateAge, formatDate, fullName, initials } from "@/shared/utils/format";
 import { nextReference, todayIsoDate, toggleSort } from "@/shared/utils/resource-helpers";
 
@@ -119,7 +120,7 @@ function PatientAvatar({ patient }: { patient: Patient }) {
 function PatientListSkeleton({ view }: { view: PatientView }) {
   if (view === "table") {
     return (
-      <div className="overflow-hidden rounded-lg border border-border bg-card">
+      <div className="overflow-hidden bg-card">
         <div className="h-11 border-b bg-muted/40" />
         <div className="space-y-0 divide-y">
           {Array.from({ length: 7 }).map((_, index) => (
@@ -366,7 +367,7 @@ export function PatientsPage() {
               variant="outline"
               size="sm"
               aria-label="Mode d'affichage des patients"
-              className="shrink-0 rounded-md border border-input p-0.5 shadow-sm"
+              className="shrink-0 rounded-md bg-muted/60 p-0.5"
             >
               <ToggleGroupItem
                 value="table"
@@ -393,7 +394,10 @@ export function PatientsPage() {
 
       <section
         aria-label="Liste des patients"
-        className="mt-4 flex min-h-[32rem] flex-1 flex-col overflow-hidden rounded-lg border border-border bg-card shadow-card"
+        className={cn(
+          "mt-4 flex min-h-[32rem] flex-1 flex-col overflow-hidden",
+          view === "table" && "rounded-lg border border-border bg-card shadow-card",
+        )}
       >
         <div className="min-h-0 flex-1 p-0">
           {listQuery.isLoading ? (
@@ -589,7 +593,7 @@ export function PatientsPage() {
           ) : null}
         </div>
         {listQuery.data && !listQuery.isError ? (
-          <div className="mt-auto border-t bg-muted/20">
+          <div className={cn("mt-auto bg-muted/20", view === "table" && "border-t")}>
             <PatientPagination
               page={listQuery.data.page}
               totalPages={listQuery.data.totalPages}
