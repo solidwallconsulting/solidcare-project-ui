@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,28 +7,31 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { brand } from "@/app/config/brand";
+import { BrandLogo } from "@/shared/components/brand/brand-logo";
 import { useAuth } from "@/app/providers/auth-provider";
 
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Sign in — SolidCare Clinic Management" },
+      { title: "Connexion — SolidCare" },
       {
         name: "description",
         content:
-          "Sign in to SolidCare to manage patients, appointments, consultations, prescriptions and payments.",
+          "Connectez-vous à SolidCare pour gérer votre clinique : patients, rendez-vous, départements et paiements.",
       },
-      { property: "og:title", content: "Sign in — SolidCare Clinic Management" },
-      { property: "og:description", content: "Access your SolidCare clinic workspace." },
+      { property: "og:title", content: "Connexion — SolidCare" },
+      { property: "og:description", content: "Accédez à votre espace clinique SolidCare." },
     ],
   }),
   component: LoginPage,
 });
 
 const loginSchema = z.object({
-  email: z.string().email("Enter a valid email address"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
+  email: z.string().email("Adresse e-mail invalide"),
+  password: z.string().min(6, "Le mot de passe doit contenir au moins 6 caractères"),
+  remember: z.boolean().optional(),
 });
 
 type LoginValues = z.infer<typeof loginSchema>;
@@ -40,44 +43,44 @@ function LoginPage() {
 
   const form = useForm<LoginValues>({
     resolver: zodResolver(loginSchema),
-    defaultValues: { email: "sonia.khelifi@solidcare.tn", password: "solidcare" },
+    defaultValues: {
+      email: "sonia.khelifi@solidcare.tn",
+      password: "solidcare",
+      remember: true,
+    },
   });
 
   const onSubmit = async (values: LoginValues) => {
     setSubmitting(true);
     try {
       await signIn(values.email);
-      toast.success("Welcome back to SolidCare");
+      toast.success("Bienvenue sur SolidCare");
       await navigate({ to: "/dashboard" });
     } catch {
-      toast.error("We couldn't sign you in. Please try again.");
+      toast.error("Connexion impossible. Réessayez.");
     } finally {
       setSubmitting(false);
     }
   };
 
   return (
-    <div className="grid min-h-screen lg:grid-cols-2">
+    <div className="grid min-h-screen bg-background lg:grid-cols-2">
       <div className="flex items-center justify-center px-4 py-12 sm:px-8">
         <div className="w-full max-w-sm">
-          <div className="flex items-center gap-3">
-            <img src={brand.logoUrl} alt={`${brand.name} logo`} className="size-11 object-contain" />
-            <div>
-              <p className="text-lg font-semibold text-foreground">{brand.name}</p>
-              <p className="text-xs tracking-wide text-muted-foreground uppercase">
-                {brand.tagline}
-              </p>
-            </div>
-          </div>
+          <Link to="/" className="inline-flex">
+            <BrandLogo showWordmark markClassName="size-11" />
+          </Link>
 
-          <h1 className="mt-8 text-2xl font-semibold text-foreground">Sign in</h1>
+          <h1 className="mt-8 font-display text-2xl font-semibold text-foreground">
+            Bon retour
+          </h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Demo workspace — any email works while the backend is being connected.
+            Espace interne réservé au personnel de la clinique. Aucun portail patient public.
           </p>
 
           <form className="mt-6 space-y-4" onSubmit={form.handleSubmit(onSubmit)} noValidate>
             <div className="space-y-1.5">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">E-mail</Label>
               <Input
                 id="email"
                 type="email"
@@ -91,7 +94,10 @@ function LoginPage() {
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="password">Password</Label>
+              <div className="flex items-center justify-between">
+                <Label htmlFor="password">Mot de passe</Label>
+                <span className="text-xs font-medium text-primary">Mot de passe oublié ?</span>
+              </div>
               <Input
                 id="password"
                 type="password"
@@ -104,23 +110,48 @@ function LoginPage() {
               ) : null}
             </div>
 
+            <label className="flex items-center gap-2 text-sm text-foreground">
+              <Checkbox
+                checked={form.watch("remember")}
+                onCheckedChange={(checked) => form.setValue("remember", Boolean(checked))}
+              />
+              Se souvenir de moi
+            </label>
+
             <Button type="submit" className="w-full" disabled={submitting}>
-              {submitting ? "Signing in…" : "Sign in"}
+              {submitting ? "Connexion…" : "Se connecter"}
             </Button>
           </form>
         </div>
       </div>
 
-      <div className="hidden items-center justify-center bg-primary/8 p-12 lg:flex">
-        <div className="max-w-md space-y-4">
-          <h2 className="text-xl font-semibold text-foreground">
-            One workspace for the whole clinic
+      <div className="relative hidden overflow-hidden bg-primary lg:flex lg:items-center lg:justify-center lg:p-12">
+        <div className="absolute inset-0 opacity-20">
+          <svg className="size-full" viewBox="0 0 400 400" aria-hidden="true">
+            <path
+              d="M40 200 H140 C160 200 160 140 180 140 H260 C280 140 280 200 300 200 H360"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="text-primary-foreground"
+            />
+            <circle cx="140" cy="200" r="5" className="fill-secondary" />
+            <circle cx="220" cy="140" r="5" className="fill-secondary" />
+            <circle cx="300" cy="200" r="5" className="fill-secondary" />
+          </svg>
+        </div>
+        <div className="relative max-w-md space-y-5 text-primary-foreground">
+          <p className="text-xs font-semibold tracking-[0.18em] text-secondary uppercase">
+            Care Flow
+          </p>
+          <h2 className="font-display text-3xl font-semibold leading-tight">
+            Votre clinique, enfin parfaitement fluide.
           </h2>
-          <p className="text-sm text-muted-foreground">{brand.description}</p>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>· Patient records, appointments and consultations in one place</li>
-            <li>· Prescriptions and payments tracked in Tunisian dinar</li>
-            <li>· Role-based access for administrators, doctors and reception</li>
+          <p className="text-sm text-primary-foreground/85">{brand.description}</p>
+          <ul className="space-y-2 text-sm text-primary-foreground/85">
+            <li>· Gestion interne : chefs de département, équipes et médecins</li>
+            <li>· Dossier patient complet avec historique de soins</li>
+            <li>· Salles, blocs opératoires et matériel médical</li>
           </ul>
         </div>
       </div>

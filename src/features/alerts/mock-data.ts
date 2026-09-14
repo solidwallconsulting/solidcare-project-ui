@@ -1,0 +1,58 @@
+import type { ClinicAlert } from "./types";
+
+export const alertSeed: ClinicAlert[] = [
+  {
+    id: "alt-001",
+    severity: "critical",
+    title: "Bloc opératoire indisponible",
+    message: "Le bloc gynécologique (BO-GYN) est en maintenance — interventions reportées.",
+    module: "operating_rooms",
+    createdAt: "2026-09-10T07:15:00",
+    read: false,
+  },
+  {
+    id: "alt-002",
+    severity: "warning",
+    title: "Maintenance matériel",
+    message: "Échographe cardiaque portable : prochaine maintenance dépassée de 3 jours.",
+    module: "equipment",
+    createdAt: "2026-09-10T08:02:00",
+    read: false,
+  },
+  {
+    id: "alt-003",
+    severity: "warning",
+    title: "Lit indisponible",
+    message: "Aucun lit libre en cardiologie — hospitalisation en attente.",
+    module: "wards",
+    createdAt: "2026-09-10T08:40:00",
+    read: false,
+  },
+  {
+    id: "alt-004",
+    severity: "info",
+    title: "Examen prêt",
+    message: "Résultats d'ECG disponibles pour le dossier PAT-001.",
+    module: "examinations",
+    createdAt: "2026-09-10T09:10:00",
+    read: true,
+  },
+  {
+    id: "alt-005",
+    severity: "info",
+    title: "Salle libérée",
+    message: "La salle C-201 est de nouveau disponible.",
+    module: "rooms",
+    createdAt: "2026-09-09T17:45:00",
+    read: true,
+  },
+  {
+    id: "alt-006",
+    severity: "critical",
+    title: "Intervention prolongée",
+    message: "Bloc 2 (BO-2) occupé au-delà du créneau prévu.",
+    module: "operating_rooms",
+    createdAt: "2026-09-10T10:05:00",
+    read: false,
+  },
+];

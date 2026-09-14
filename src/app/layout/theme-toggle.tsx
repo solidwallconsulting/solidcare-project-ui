@@ -9,9 +9,9 @@ import {
 import { useTheme, type ThemeMode } from "@/app/providers/theme-provider";
 
 const options: { value: ThemeMode; label: string; icon: typeof Sun }[] = [
-  { value: "light", label: "Light", icon: Sun },
-  { value: "dark", label: "Dark", icon: Moon },
-  { value: "system", label: "System", icon: Monitor },
+  { value: "light", label: "Clair", icon: Sun },
+  { value: "dark", label: "Sombre", icon: Moon },
+  { value: "system", label: "Système", icon: Monitor },
 ];
 
 export function ThemeToggle() {
@@ -20,7 +20,7 @@ export function ThemeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label="Change theme">
+        <Button variant="ghost" size="icon" aria-label="Changer le thème">
           {resolvedTheme === "dark" ? (
             <Moon className="size-4" aria-hidden="true" />
           ) : (

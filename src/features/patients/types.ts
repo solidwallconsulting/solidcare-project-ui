@@ -20,12 +20,17 @@ export interface Patient {
   email: string;
   city: string;
   address: string;
+  emergencyContactName: string;
+  emergencyContactPhone: string;
   bloodGroup: BloodGroup;
   insurance: string;
   allergies: string;
+  chronicConditions: string;
+  medicalHistory: string;
   notes: string;
   status: PatientStatus;
   createdAt: string;
+  updatedAt: string;
 }
 
 export interface PatientListQuery extends ListQuery {
@@ -47,9 +52,15 @@ export const patientSchema = z.object({
   email: z.string().email("Enter a valid email address").or(z.literal("")),
   city: z.string().min(2, "City is required"),
   address: z.string().max(160, "Address is too long"),
+  emergencyContactName: z.string().max(80, "Name is too long"),
+  emergencyContactPhone: z
+    .string()
+    .regex(/^$|^[0-9+\s]+$/, "Phone number can only contain digits, spaces and +"),
   bloodGroup: z.enum(bloodGroups),
   insurance: z.string().max(80, "Insurance name is too long"),
   allergies: z.string().max(240, "Keep allergies under 240 characters"),
+  chronicConditions: z.string().max(240, "Keep conditions under 240 characters"),
+  medicalHistory: z.string().max(800, "Keep medical history under 800 characters"),
   notes: z.string().max(400, "Keep notes under 400 characters"),
   status: z.enum(patientStatuses),
 });

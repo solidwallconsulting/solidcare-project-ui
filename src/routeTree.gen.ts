@@ -12,7 +12,44 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShellRouteImport } from './routes/_shell'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as ShellAlertsRouteImport } from './routes/_shell.alerts'
+import { Route as ShellAppointmentsRouteImport } from './routes/_shell.appointments'
+import { Route as ShellConsultationsRouteImport } from './routes/_shell.consultations'
 import { Route as ShellDashboardRouteImport } from './routes/_shell.dashboard'
+import { Route as ShellDepartmentsRouteImport } from './routes/_shell.departments'
+import { Route as ShellDoctorsRouteImport } from './routes/_shell.doctors'
+import { Route as ShellEquipmentRouteImport } from './routes/_shell.equipment'
+import { Route as ShellExaminationsRouteImport } from './routes/_shell.examinations'
+import { Route as ShellHospitalizationsRouteImport } from './routes/_shell.hospitalizations'
+import { Route as ShellMaintenanceRouteImport } from './routes/_shell.maintenance'
+import { Route as ShellOperatingRoomsRouteImport } from './routes/_shell.operating-rooms'
+import { Route as ShellPatientsRouteImport } from './routes/_shell.patients'
+import { Route as ShellPaymentsRouteImport } from './routes/_shell.payments'
+import { Route as ShellPlanningRouteImport } from './routes/_shell.planning'
+import { Route as ShellPrescriptionsRouteImport } from './routes/_shell.prescriptions'
+import { Route as ShellReportsRouteImport } from './routes/_shell.reports'
+import { Route as ShellRoomsRouteImport } from './routes/_shell.rooms'
+import { Route as ShellStaffRouteImport } from './routes/_shell.staff'
+import { Route as ShellWardsRouteImport } from './routes/_shell.wards'
+import { Route as ShellAdminAuditRouteImport } from './routes/_shell.admin.audit'
+import { Route as ShellAdminRolesRouteImport } from './routes/_shell.admin.roles'
+import { Route as ShellAdminSettingsRouteImport } from './routes/_shell.admin.settings'
+import { Route as ShellAdminUsersRouteImport } from './routes/_shell.admin.users'
+import { Route as ShellDepartmentsIndexRouteImport } from './routes/_shell.departments.index'
+import { Route as ShellDepartmentsIdRouteImport } from './routes/_shell.departments.$id'
+import { Route as ShellDoctorsIndexRouteImport } from './routes/_shell.doctors.index'
+import { Route as ShellDoctorsIdRouteImport } from './routes/_shell.doctors.$id'
+import { Route as ShellEquipmentIndexRouteImport } from './routes/_shell.equipment.index'
+import { Route as ShellEquipmentIdRouteImport } from './routes/_shell.equipment.$id'
+import { Route as ShellMaintenanceIndexRouteImport } from './routes/_shell.maintenance.index'
+import { Route as ShellMaintenanceIdRouteImport } from './routes/_shell.maintenance.$id'
+import { Route as ShellPatientsIdRouteImport } from './routes/_shell.patients.$id'
+import { Route as ShellRoomsIndexRouteImport } from './routes/_shell.rooms.index'
+import { Route as ShellRoomsIdRouteImport } from './routes/_shell.rooms.$id'
+import { Route as ShellStaffIndexRouteImport } from './routes/_shell.staff.index'
+import { Route as ShellStaffIdRouteImport } from './routes/_shell.staff.$id'
+import { Route as ShellWardsIndexRouteImport } from './routes/_shell.wards.index'
+import { Route as ShellWardsIdRouteImport } from './routes/_shell.wards.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +65,439 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShellAlertsRoute = ShellAlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellAppointmentsRoute = ShellAppointmentsRouteImport.update({
+  id: '/appointments',
+  path: '/appointments',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellConsultationsRoute = ShellConsultationsRouteImport.update({
+  id: '/consultations',
+  path: '/consultations',
+  getParentRoute: () => ShellRoute,
+} as any)
 const ShellDashboardRoute = ShellDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
   getParentRoute: () => ShellRoute,
 } as any)
+const ShellDepartmentsRoute = ShellDepartmentsRouteImport.update({
+  id: '/departments',
+  path: '/departments',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellDoctorsRoute = ShellDoctorsRouteImport.update({
+  id: '/doctors',
+  path: '/doctors',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellEquipmentRoute = ShellEquipmentRouteImport.update({
+  id: '/equipment',
+  path: '/equipment',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellExaminationsRoute = ShellExaminationsRouteImport.update({
+  id: '/examinations',
+  path: '/examinations',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellHospitalizationsRoute = ShellHospitalizationsRouteImport.update({
+  id: '/hospitalizations',
+  path: '/hospitalizations',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellMaintenanceRoute = ShellMaintenanceRouteImport.update({
+  id: '/maintenance',
+  path: '/maintenance',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellOperatingRoomsRoute = ShellOperatingRoomsRouteImport.update({
+  id: '/operating-rooms',
+  path: '/operating-rooms',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellPatientsRoute = ShellPatientsRouteImport.update({
+  id: '/patients',
+  path: '/patients',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellPaymentsRoute = ShellPaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellPlanningRoute = ShellPlanningRouteImport.update({
+  id: '/planning',
+  path: '/planning',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellPrescriptionsRoute = ShellPrescriptionsRouteImport.update({
+  id: '/prescriptions',
+  path: '/prescriptions',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellReportsRoute = ShellReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellRoomsRoute = ShellRoomsRouteImport.update({
+  id: '/rooms',
+  path: '/rooms',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellStaffRoute = ShellStaffRouteImport.update({
+  id: '/staff',
+  path: '/staff',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellWardsRoute = ShellWardsRouteImport.update({
+  id: '/wards',
+  path: '/wards',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellAdminAuditRoute = ShellAdminAuditRouteImport.update({
+  id: '/admin/audit',
+  path: '/admin/audit',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellAdminRolesRoute = ShellAdminRolesRouteImport.update({
+  id: '/admin/roles',
+  path: '/admin/roles',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellAdminSettingsRoute = ShellAdminSettingsRouteImport.update({
+  id: '/admin/settings',
+  path: '/admin/settings',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellAdminUsersRoute = ShellAdminUsersRouteImport.update({
+  id: '/admin/users',
+  path: '/admin/users',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellDepartmentsIndexRoute = ShellDepartmentsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShellDepartmentsRoute,
+} as any)
+const ShellDepartmentsIdRoute = ShellDepartmentsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ShellDepartmentsRoute,
+} as any)
+const ShellDoctorsIndexRoute = ShellDoctorsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShellDoctorsRoute,
+} as any)
+const ShellDoctorsIdRoute = ShellDoctorsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ShellDoctorsRoute,
+} as any)
+const ShellEquipmentIndexRoute = ShellEquipmentIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShellEquipmentRoute,
+} as any)
+const ShellEquipmentIdRoute = ShellEquipmentIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ShellEquipmentRoute,
+} as any)
+const ShellMaintenanceIndexRoute = ShellMaintenanceIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShellMaintenanceRoute,
+} as any)
+const ShellMaintenanceIdRoute = ShellMaintenanceIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ShellMaintenanceRoute,
+} as any)
+const ShellPatientsIdRoute = ShellPatientsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ShellPatientsRoute,
+} as any)
+const ShellRoomsIndexRoute = ShellRoomsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShellRoomsRoute,
+} as any)
+const ShellRoomsIdRoute = ShellRoomsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ShellRoomsRoute,
+} as any)
+const ShellStaffIndexRoute = ShellStaffIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShellStaffRoute,
+} as any)
+const ShellStaffIdRoute = ShellStaffIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ShellStaffRoute,
+} as any)
+const ShellWardsIndexRoute = ShellWardsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShellWardsRoute,
+} as any)
+const ShellWardsIdRoute = ShellWardsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ShellWardsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/alerts': typeof ShellAlertsRoute
+  '/appointments': typeof ShellAppointmentsRoute
+  '/consultations': typeof ShellConsultationsRoute
   '/dashboard': typeof ShellDashboardRoute
+  '/departments': typeof ShellDepartmentsRouteWithChildren
+  '/doctors': typeof ShellDoctorsRouteWithChildren
+  '/equipment': typeof ShellEquipmentRouteWithChildren
+  '/examinations': typeof ShellExaminationsRoute
+  '/hospitalizations': typeof ShellHospitalizationsRoute
+  '/maintenance': typeof ShellMaintenanceRouteWithChildren
+  '/operating-rooms': typeof ShellOperatingRoomsRoute
+  '/patients': typeof ShellPatientsRouteWithChildren
+  '/payments': typeof ShellPaymentsRoute
+  '/planning': typeof ShellPlanningRoute
+  '/prescriptions': typeof ShellPrescriptionsRoute
+  '/reports': typeof ShellReportsRoute
+  '/rooms': typeof ShellRoomsRouteWithChildren
+  '/staff': typeof ShellStaffRouteWithChildren
+  '/wards': typeof ShellWardsRouteWithChildren
+  '/admin/audit': typeof ShellAdminAuditRoute
+  '/admin/roles': typeof ShellAdminRolesRoute
+  '/admin/settings': typeof ShellAdminSettingsRoute
+  '/admin/users': typeof ShellAdminUsersRoute
+  '/departments/$id': typeof ShellDepartmentsIdRoute
+  '/doctors/$id': typeof ShellDoctorsIdRoute
+  '/equipment/$id': typeof ShellEquipmentIdRoute
+  '/maintenance/$id': typeof ShellMaintenanceIdRoute
+  '/patients/$id': typeof ShellPatientsIdRoute
+  '/rooms/$id': typeof ShellRoomsIdRoute
+  '/staff/$id': typeof ShellStaffIdRoute
+  '/wards/$id': typeof ShellWardsIdRoute
+  '/departments/': typeof ShellDepartmentsIndexRoute
+  '/doctors/': typeof ShellDoctorsIndexRoute
+  '/equipment/': typeof ShellEquipmentIndexRoute
+  '/maintenance/': typeof ShellMaintenanceIndexRoute
+  '/rooms/': typeof ShellRoomsIndexRoute
+  '/staff/': typeof ShellStaffIndexRoute
+  '/wards/': typeof ShellWardsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/alerts': typeof ShellAlertsRoute
+  '/appointments': typeof ShellAppointmentsRoute
+  '/consultations': typeof ShellConsultationsRoute
   '/dashboard': typeof ShellDashboardRoute
+  '/examinations': typeof ShellExaminationsRoute
+  '/hospitalizations': typeof ShellHospitalizationsRoute
+  '/operating-rooms': typeof ShellOperatingRoomsRoute
+  '/patients': typeof ShellPatientsRouteWithChildren
+  '/payments': typeof ShellPaymentsRoute
+  '/planning': typeof ShellPlanningRoute
+  '/prescriptions': typeof ShellPrescriptionsRoute
+  '/reports': typeof ShellReportsRoute
+  '/admin/audit': typeof ShellAdminAuditRoute
+  '/admin/roles': typeof ShellAdminRolesRoute
+  '/admin/settings': typeof ShellAdminSettingsRoute
+  '/admin/users': typeof ShellAdminUsersRoute
+  '/departments/$id': typeof ShellDepartmentsIdRoute
+  '/doctors/$id': typeof ShellDoctorsIdRoute
+  '/equipment/$id': typeof ShellEquipmentIdRoute
+  '/maintenance/$id': typeof ShellMaintenanceIdRoute
+  '/patients/$id': typeof ShellPatientsIdRoute
+  '/rooms/$id': typeof ShellRoomsIdRoute
+  '/staff/$id': typeof ShellStaffIdRoute
+  '/wards/$id': typeof ShellWardsIdRoute
+  '/departments': typeof ShellDepartmentsIndexRoute
+  '/doctors': typeof ShellDoctorsIndexRoute
+  '/equipment': typeof ShellEquipmentIndexRoute
+  '/maintenance': typeof ShellMaintenanceIndexRoute
+  '/rooms': typeof ShellRoomsIndexRoute
+  '/staff': typeof ShellStaffIndexRoute
+  '/wards': typeof ShellWardsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_shell': typeof ShellRouteWithChildren
   '/login': typeof LoginRoute
+  '/_shell/alerts': typeof ShellAlertsRoute
+  '/_shell/appointments': typeof ShellAppointmentsRoute
+  '/_shell/consultations': typeof ShellConsultationsRoute
   '/_shell/dashboard': typeof ShellDashboardRoute
+  '/_shell/departments': typeof ShellDepartmentsRouteWithChildren
+  '/_shell/doctors': typeof ShellDoctorsRouteWithChildren
+  '/_shell/equipment': typeof ShellEquipmentRouteWithChildren
+  '/_shell/examinations': typeof ShellExaminationsRoute
+  '/_shell/hospitalizations': typeof ShellHospitalizationsRoute
+  '/_shell/maintenance': typeof ShellMaintenanceRouteWithChildren
+  '/_shell/operating-rooms': typeof ShellOperatingRoomsRoute
+  '/_shell/patients': typeof ShellPatientsRouteWithChildren
+  '/_shell/payments': typeof ShellPaymentsRoute
+  '/_shell/planning': typeof ShellPlanningRoute
+  '/_shell/prescriptions': typeof ShellPrescriptionsRoute
+  '/_shell/reports': typeof ShellReportsRoute
+  '/_shell/rooms': typeof ShellRoomsRouteWithChildren
+  '/_shell/staff': typeof ShellStaffRouteWithChildren
+  '/_shell/wards': typeof ShellWardsRouteWithChildren
+  '/_shell/admin/audit': typeof ShellAdminAuditRoute
+  '/_shell/admin/roles': typeof ShellAdminRolesRoute
+  '/_shell/admin/settings': typeof ShellAdminSettingsRoute
+  '/_shell/admin/users': typeof ShellAdminUsersRoute
+  '/_shell/departments/$id': typeof ShellDepartmentsIdRoute
+  '/_shell/doctors/$id': typeof ShellDoctorsIdRoute
+  '/_shell/equipment/$id': typeof ShellEquipmentIdRoute
+  '/_shell/maintenance/$id': typeof ShellMaintenanceIdRoute
+  '/_shell/patients/$id': typeof ShellPatientsIdRoute
+  '/_shell/rooms/$id': typeof ShellRoomsIdRoute
+  '/_shell/staff/$id': typeof ShellStaffIdRoute
+  '/_shell/wards/$id': typeof ShellWardsIdRoute
+  '/_shell/departments/': typeof ShellDepartmentsIndexRoute
+  '/_shell/doctors/': typeof ShellDoctorsIndexRoute
+  '/_shell/equipment/': typeof ShellEquipmentIndexRoute
+  '/_shell/maintenance/': typeof ShellMaintenanceIndexRoute
+  '/_shell/rooms/': typeof ShellRoomsIndexRoute
+  '/_shell/staff/': typeof ShellStaffIndexRoute
+  '/_shell/wards/': typeof ShellWardsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/dashboard'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/alerts'
+    | '/appointments'
+    | '/consultations'
+    | '/dashboard'
+    | '/departments'
+    | '/doctors'
+    | '/equipment'
+    | '/examinations'
+    | '/hospitalizations'
+    | '/maintenance'
+    | '/operating-rooms'
+    | '/patients'
+    | '/payments'
+    | '/planning'
+    | '/prescriptions'
+    | '/reports'
+    | '/rooms'
+    | '/staff'
+    | '/wards'
+    | '/admin/audit'
+    | '/admin/roles'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/departments/$id'
+    | '/doctors/$id'
+    | '/equipment/$id'
+    | '/maintenance/$id'
+    | '/patients/$id'
+    | '/rooms/$id'
+    | '/staff/$id'
+    | '/wards/$id'
+    | '/departments/'
+    | '/doctors/'
+    | '/equipment/'
+    | '/maintenance/'
+    | '/rooms/'
+    | '/staff/'
+    | '/wards/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/dashboard'
-  id: '__root__' | '/' | '/_shell' | '/login' | '/_shell/dashboard'
+  to:
+    | '/'
+    | '/login'
+    | '/alerts'
+    | '/appointments'
+    | '/consultations'
+    | '/dashboard'
+    | '/examinations'
+    | '/hospitalizations'
+    | '/operating-rooms'
+    | '/patients'
+    | '/payments'
+    | '/planning'
+    | '/prescriptions'
+    | '/reports'
+    | '/admin/audit'
+    | '/admin/roles'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/departments/$id'
+    | '/doctors/$id'
+    | '/equipment/$id'
+    | '/maintenance/$id'
+    | '/patients/$id'
+    | '/rooms/$id'
+    | '/staff/$id'
+    | '/wards/$id'
+    | '/departments'
+    | '/doctors'
+    | '/equipment'
+    | '/maintenance'
+    | '/rooms'
+    | '/staff'
+    | '/wards'
+  id:
+    | '__root__'
+    | '/'
+    | '/_shell'
+    | '/login'
+    | '/_shell/alerts'
+    | '/_shell/appointments'
+    | '/_shell/consultations'
+    | '/_shell/dashboard'
+    | '/_shell/departments'
+    | '/_shell/doctors'
+    | '/_shell/equipment'
+    | '/_shell/examinations'
+    | '/_shell/hospitalizations'
+    | '/_shell/maintenance'
+    | '/_shell/operating-rooms'
+    | '/_shell/patients'
+    | '/_shell/payments'
+    | '/_shell/planning'
+    | '/_shell/prescriptions'
+    | '/_shell/reports'
+    | '/_shell/rooms'
+    | '/_shell/staff'
+    | '/_shell/wards'
+    | '/_shell/admin/audit'
+    | '/_shell/admin/roles'
+    | '/_shell/admin/settings'
+    | '/_shell/admin/users'
+    | '/_shell/departments/$id'
+    | '/_shell/doctors/$id'
+    | '/_shell/equipment/$id'
+    | '/_shell/maintenance/$id'
+    | '/_shell/patients/$id'
+    | '/_shell/rooms/$id'
+    | '/_shell/staff/$id'
+    | '/_shell/wards/$id'
+    | '/_shell/departments/'
+    | '/_shell/doctors/'
+    | '/_shell/equipment/'
+    | '/_shell/maintenance/'
+    | '/_shell/rooms/'
+    | '/_shell/staff/'
+    | '/_shell/wards/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -88,6 +529,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_shell/alerts': {
+      id: '/_shell/alerts'
+      path: '/alerts'
+      fullPath: '/alerts'
+      preLoaderRoute: typeof ShellAlertsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/appointments': {
+      id: '/_shell/appointments'
+      path: '/appointments'
+      fullPath: '/appointments'
+      preLoaderRoute: typeof ShellAppointmentsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/consultations': {
+      id: '/_shell/consultations'
+      path: '/consultations'
+      fullPath: '/consultations'
+      preLoaderRoute: typeof ShellConsultationsRouteImport
+      parentRoute: typeof ShellRoute
+    }
     '/_shell/dashboard': {
       id: '/_shell/dashboard'
       path: '/dashboard'
@@ -95,15 +557,405 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShellDashboardRouteImport
       parentRoute: typeof ShellRoute
     }
+    '/_shell/departments': {
+      id: '/_shell/departments'
+      path: '/departments'
+      fullPath: '/departments'
+      preLoaderRoute: typeof ShellDepartmentsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/doctors': {
+      id: '/_shell/doctors'
+      path: '/doctors'
+      fullPath: '/doctors'
+      preLoaderRoute: typeof ShellDoctorsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/equipment': {
+      id: '/_shell/equipment'
+      path: '/equipment'
+      fullPath: '/equipment'
+      preLoaderRoute: typeof ShellEquipmentRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/examinations': {
+      id: '/_shell/examinations'
+      path: '/examinations'
+      fullPath: '/examinations'
+      preLoaderRoute: typeof ShellExaminationsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/hospitalizations': {
+      id: '/_shell/hospitalizations'
+      path: '/hospitalizations'
+      fullPath: '/hospitalizations'
+      preLoaderRoute: typeof ShellHospitalizationsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/maintenance': {
+      id: '/_shell/maintenance'
+      path: '/maintenance'
+      fullPath: '/maintenance'
+      preLoaderRoute: typeof ShellMaintenanceRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/operating-rooms': {
+      id: '/_shell/operating-rooms'
+      path: '/operating-rooms'
+      fullPath: '/operating-rooms'
+      preLoaderRoute: typeof ShellOperatingRoomsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/patients': {
+      id: '/_shell/patients'
+      path: '/patients'
+      fullPath: '/patients'
+      preLoaderRoute: typeof ShellPatientsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/payments': {
+      id: '/_shell/payments'
+      path: '/payments'
+      fullPath: '/payments'
+      preLoaderRoute: typeof ShellPaymentsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/planning': {
+      id: '/_shell/planning'
+      path: '/planning'
+      fullPath: '/planning'
+      preLoaderRoute: typeof ShellPlanningRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/prescriptions': {
+      id: '/_shell/prescriptions'
+      path: '/prescriptions'
+      fullPath: '/prescriptions'
+      preLoaderRoute: typeof ShellPrescriptionsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/reports': {
+      id: '/_shell/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ShellReportsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/rooms': {
+      id: '/_shell/rooms'
+      path: '/rooms'
+      fullPath: '/rooms'
+      preLoaderRoute: typeof ShellRoomsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/staff': {
+      id: '/_shell/staff'
+      path: '/staff'
+      fullPath: '/staff'
+      preLoaderRoute: typeof ShellStaffRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/wards': {
+      id: '/_shell/wards'
+      path: '/wards'
+      fullPath: '/wards'
+      preLoaderRoute: typeof ShellWardsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/admin/audit': {
+      id: '/_shell/admin/audit'
+      path: '/admin/audit'
+      fullPath: '/admin/audit'
+      preLoaderRoute: typeof ShellAdminAuditRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/admin/roles': {
+      id: '/_shell/admin/roles'
+      path: '/admin/roles'
+      fullPath: '/admin/roles'
+      preLoaderRoute: typeof ShellAdminRolesRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/admin/settings': {
+      id: '/_shell/admin/settings'
+      path: '/admin/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof ShellAdminSettingsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/admin/users': {
+      id: '/_shell/admin/users'
+      path: '/admin/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof ShellAdminUsersRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/departments/': {
+      id: '/_shell/departments/'
+      path: '/'
+      fullPath: '/departments/'
+      preLoaderRoute: typeof ShellDepartmentsIndexRouteImport
+      parentRoute: typeof ShellDepartmentsRoute
+    }
+    '/_shell/departments/$id': {
+      id: '/_shell/departments/$id'
+      path: '/$id'
+      fullPath: '/departments/$id'
+      preLoaderRoute: typeof ShellDepartmentsIdRouteImport
+      parentRoute: typeof ShellDepartmentsRoute
+    }
+    '/_shell/doctors/': {
+      id: '/_shell/doctors/'
+      path: '/'
+      fullPath: '/doctors/'
+      preLoaderRoute: typeof ShellDoctorsIndexRouteImport
+      parentRoute: typeof ShellDoctorsRoute
+    }
+    '/_shell/doctors/$id': {
+      id: '/_shell/doctors/$id'
+      path: '/$id'
+      fullPath: '/doctors/$id'
+      preLoaderRoute: typeof ShellDoctorsIdRouteImport
+      parentRoute: typeof ShellDoctorsRoute
+    }
+    '/_shell/equipment/': {
+      id: '/_shell/equipment/'
+      path: '/'
+      fullPath: '/equipment/'
+      preLoaderRoute: typeof ShellEquipmentIndexRouteImport
+      parentRoute: typeof ShellEquipmentRoute
+    }
+    '/_shell/equipment/$id': {
+      id: '/_shell/equipment/$id'
+      path: '/$id'
+      fullPath: '/equipment/$id'
+      preLoaderRoute: typeof ShellEquipmentIdRouteImport
+      parentRoute: typeof ShellEquipmentRoute
+    }
+    '/_shell/maintenance/': {
+      id: '/_shell/maintenance/'
+      path: '/'
+      fullPath: '/maintenance/'
+      preLoaderRoute: typeof ShellMaintenanceIndexRouteImport
+      parentRoute: typeof ShellMaintenanceRoute
+    }
+    '/_shell/maintenance/$id': {
+      id: '/_shell/maintenance/$id'
+      path: '/$id'
+      fullPath: '/maintenance/$id'
+      preLoaderRoute: typeof ShellMaintenanceIdRouteImport
+      parentRoute: typeof ShellMaintenanceRoute
+    }
+    '/_shell/patients/$id': {
+      id: '/_shell/patients/$id'
+      path: '/$id'
+      fullPath: '/patients/$id'
+      preLoaderRoute: typeof ShellPatientsIdRouteImport
+      parentRoute: typeof ShellPatientsRoute
+    }
+    '/_shell/rooms/': {
+      id: '/_shell/rooms/'
+      path: '/'
+      fullPath: '/rooms/'
+      preLoaderRoute: typeof ShellRoomsIndexRouteImport
+      parentRoute: typeof ShellRoomsRoute
+    }
+    '/_shell/rooms/$id': {
+      id: '/_shell/rooms/$id'
+      path: '/$id'
+      fullPath: '/rooms/$id'
+      preLoaderRoute: typeof ShellRoomsIdRouteImport
+      parentRoute: typeof ShellRoomsRoute
+    }
+    '/_shell/staff/': {
+      id: '/_shell/staff/'
+      path: '/'
+      fullPath: '/staff/'
+      preLoaderRoute: typeof ShellStaffIndexRouteImport
+      parentRoute: typeof ShellStaffRoute
+    }
+    '/_shell/staff/$id': {
+      id: '/_shell/staff/$id'
+      path: '/$id'
+      fullPath: '/staff/$id'
+      preLoaderRoute: typeof ShellStaffIdRouteImport
+      parentRoute: typeof ShellStaffRoute
+    }
+    '/_shell/wards/': {
+      id: '/_shell/wards/'
+      path: '/'
+      fullPath: '/wards/'
+      preLoaderRoute: typeof ShellWardsIndexRouteImport
+      parentRoute: typeof ShellWardsRoute
+    }
+    '/_shell/wards/$id': {
+      id: '/_shell/wards/$id'
+      path: '/$id'
+      fullPath: '/wards/$id'
+      preLoaderRoute: typeof ShellWardsIdRouteImport
+      parentRoute: typeof ShellWardsRoute
+    }
   }
 }
 
+interface ShellDepartmentsRouteChildren {
+  ShellDepartmentsIdRoute: typeof ShellDepartmentsIdRoute
+  ShellDepartmentsIndexRoute: typeof ShellDepartmentsIndexRoute
+}
+
+const ShellDepartmentsRouteChildren: ShellDepartmentsRouteChildren = {
+  ShellDepartmentsIdRoute: ShellDepartmentsIdRoute,
+  ShellDepartmentsIndexRoute: ShellDepartmentsIndexRoute,
+}
+
+const ShellDepartmentsRouteWithChildren =
+  ShellDepartmentsRoute._addFileChildren(ShellDepartmentsRouteChildren)
+
+interface ShellDoctorsRouteChildren {
+  ShellDoctorsIdRoute: typeof ShellDoctorsIdRoute
+  ShellDoctorsIndexRoute: typeof ShellDoctorsIndexRoute
+}
+
+const ShellDoctorsRouteChildren: ShellDoctorsRouteChildren = {
+  ShellDoctorsIdRoute: ShellDoctorsIdRoute,
+  ShellDoctorsIndexRoute: ShellDoctorsIndexRoute,
+}
+
+const ShellDoctorsRouteWithChildren = ShellDoctorsRoute._addFileChildren(
+  ShellDoctorsRouteChildren,
+)
+
+interface ShellEquipmentRouteChildren {
+  ShellEquipmentIdRoute: typeof ShellEquipmentIdRoute
+  ShellEquipmentIndexRoute: typeof ShellEquipmentIndexRoute
+}
+
+const ShellEquipmentRouteChildren: ShellEquipmentRouteChildren = {
+  ShellEquipmentIdRoute: ShellEquipmentIdRoute,
+  ShellEquipmentIndexRoute: ShellEquipmentIndexRoute,
+}
+
+const ShellEquipmentRouteWithChildren = ShellEquipmentRoute._addFileChildren(
+  ShellEquipmentRouteChildren,
+)
+
+interface ShellMaintenanceRouteChildren {
+  ShellMaintenanceIdRoute: typeof ShellMaintenanceIdRoute
+  ShellMaintenanceIndexRoute: typeof ShellMaintenanceIndexRoute
+}
+
+const ShellMaintenanceRouteChildren: ShellMaintenanceRouteChildren = {
+  ShellMaintenanceIdRoute: ShellMaintenanceIdRoute,
+  ShellMaintenanceIndexRoute: ShellMaintenanceIndexRoute,
+}
+
+const ShellMaintenanceRouteWithChildren =
+  ShellMaintenanceRoute._addFileChildren(ShellMaintenanceRouteChildren)
+
+interface ShellPatientsRouteChildren {
+  ShellPatientsIdRoute: typeof ShellPatientsIdRoute
+}
+
+const ShellPatientsRouteChildren: ShellPatientsRouteChildren = {
+  ShellPatientsIdRoute: ShellPatientsIdRoute,
+}
+
+const ShellPatientsRouteWithChildren = ShellPatientsRoute._addFileChildren(
+  ShellPatientsRouteChildren,
+)
+
+interface ShellRoomsRouteChildren {
+  ShellRoomsIdRoute: typeof ShellRoomsIdRoute
+  ShellRoomsIndexRoute: typeof ShellRoomsIndexRoute
+}
+
+const ShellRoomsRouteChildren: ShellRoomsRouteChildren = {
+  ShellRoomsIdRoute: ShellRoomsIdRoute,
+  ShellRoomsIndexRoute: ShellRoomsIndexRoute,
+}
+
+const ShellRoomsRouteWithChildren = ShellRoomsRoute._addFileChildren(
+  ShellRoomsRouteChildren,
+)
+
+interface ShellStaffRouteChildren {
+  ShellStaffIdRoute: typeof ShellStaffIdRoute
+  ShellStaffIndexRoute: typeof ShellStaffIndexRoute
+}
+
+const ShellStaffRouteChildren: ShellStaffRouteChildren = {
+  ShellStaffIdRoute: ShellStaffIdRoute,
+  ShellStaffIndexRoute: ShellStaffIndexRoute,
+}
+
+const ShellStaffRouteWithChildren = ShellStaffRoute._addFileChildren(
+  ShellStaffRouteChildren,
+)
+
+interface ShellWardsRouteChildren {
+  ShellWardsIdRoute: typeof ShellWardsIdRoute
+  ShellWardsIndexRoute: typeof ShellWardsIndexRoute
+}
+
+const ShellWardsRouteChildren: ShellWardsRouteChildren = {
+  ShellWardsIdRoute: ShellWardsIdRoute,
+  ShellWardsIndexRoute: ShellWardsIndexRoute,
+}
+
+const ShellWardsRouteWithChildren = ShellWardsRoute._addFileChildren(
+  ShellWardsRouteChildren,
+)
+
 interface ShellRouteChildren {
+  ShellAlertsRoute: typeof ShellAlertsRoute
+  ShellAppointmentsRoute: typeof ShellAppointmentsRoute
+  ShellConsultationsRoute: typeof ShellConsultationsRoute
   ShellDashboardRoute: typeof ShellDashboardRoute
+  ShellDepartmentsRoute: typeof ShellDepartmentsRouteWithChildren
+  ShellDoctorsRoute: typeof ShellDoctorsRouteWithChildren
+  ShellEquipmentRoute: typeof ShellEquipmentRouteWithChildren
+  ShellExaminationsRoute: typeof ShellExaminationsRoute
+  ShellHospitalizationsRoute: typeof ShellHospitalizationsRoute
+  ShellMaintenanceRoute: typeof ShellMaintenanceRouteWithChildren
+  ShellOperatingRoomsRoute: typeof ShellOperatingRoomsRoute
+  ShellPatientsRoute: typeof ShellPatientsRouteWithChildren
+  ShellPaymentsRoute: typeof ShellPaymentsRoute
+  ShellPlanningRoute: typeof ShellPlanningRoute
+  ShellPrescriptionsRoute: typeof ShellPrescriptionsRoute
+  ShellReportsRoute: typeof ShellReportsRoute
+  ShellRoomsRoute: typeof ShellRoomsRouteWithChildren
+  ShellStaffRoute: typeof ShellStaffRouteWithChildren
+  ShellWardsRoute: typeof ShellWardsRouteWithChildren
+  ShellAdminAuditRoute: typeof ShellAdminAuditRoute
+  ShellAdminRolesRoute: typeof ShellAdminRolesRoute
+  ShellAdminSettingsRoute: typeof ShellAdminSettingsRoute
+  ShellAdminUsersRoute: typeof ShellAdminUsersRoute
 }
 
 const ShellRouteChildren: ShellRouteChildren = {
+  ShellAlertsRoute: ShellAlertsRoute,
+  ShellAppointmentsRoute: ShellAppointmentsRoute,
+  ShellConsultationsRoute: ShellConsultationsRoute,
   ShellDashboardRoute: ShellDashboardRoute,
+  ShellDepartmentsRoute: ShellDepartmentsRouteWithChildren,
+  ShellDoctorsRoute: ShellDoctorsRouteWithChildren,
+  ShellEquipmentRoute: ShellEquipmentRouteWithChildren,
+  ShellExaminationsRoute: ShellExaminationsRoute,
+  ShellHospitalizationsRoute: ShellHospitalizationsRoute,
+  ShellMaintenanceRoute: ShellMaintenanceRouteWithChildren,
+  ShellOperatingRoomsRoute: ShellOperatingRoomsRoute,
+  ShellPatientsRoute: ShellPatientsRouteWithChildren,
+  ShellPaymentsRoute: ShellPaymentsRoute,
+  ShellPlanningRoute: ShellPlanningRoute,
+  ShellPrescriptionsRoute: ShellPrescriptionsRoute,
+  ShellReportsRoute: ShellReportsRoute,
+  ShellRoomsRoute: ShellRoomsRouteWithChildren,
+  ShellStaffRoute: ShellStaffRouteWithChildren,
+  ShellWardsRoute: ShellWardsRouteWithChildren,
+  ShellAdminAuditRoute: ShellAdminAuditRoute,
+  ShellAdminRolesRoute: ShellAdminRolesRoute,
+  ShellAdminSettingsRoute: ShellAdminSettingsRoute,
+  ShellAdminUsersRoute: ShellAdminUsersRoute,
 }
 
 const ShellRouteWithChildren = ShellRoute._addFileChildren(ShellRouteChildren)

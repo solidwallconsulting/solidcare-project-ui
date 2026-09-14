@@ -1,9 +1,11 @@
-import logo from "@/assets/solidcare-logo.png.asset.json";
+import logoUrl from "@/assets/solidcare-logo.png";
+import heroUrl from "@/assets/solidcare-hero.png";
 
 export const brand = {
   name: "SolidCare",
-  tagline: "Clinic Management System",
-  logoUrl: logo.url,
+  tagline: "Healthcare Operations Platform",
+  logoUrl,
+  heroUrl,
   description:
-    "SolidCare is a modern clinic management system for patients, appointments, consultations, prescriptions and payments.",
+    "SolidCare orchestre People, Spaces, Resources et Care : départements, salles, chambres, blocs, personnel soignant, patients, hospitalisations et parcours de soins — plateforme interne de clinique, sans portail patient public.",
 } as const;

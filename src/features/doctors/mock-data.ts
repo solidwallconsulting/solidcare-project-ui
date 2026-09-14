@@ -13,6 +13,7 @@ export const doctorSeed: Doctor[] = [
     availableDays: ["Mon", "Tue", "Wed", "Thu", "Fri"],
     status: "available",
     room: "A-101",
+    departmentId: "dep-004",
   },
   {
     id: "doc-002",
@@ -26,6 +27,7 @@ export const doctorSeed: Doctor[] = [
     availableDays: ["Mon", "Wed", "Fri"],
     status: "available",
     room: "B-204",
+    departmentId: "dep-001",
   },
   {
     id: "doc-003",
@@ -39,6 +41,7 @@ export const doctorSeed: Doctor[] = [
     availableDays: ["Tue", "Thu", "Sat"],
     status: "available",
     room: "A-108",
+    departmentId: "dep-002",
   },
   {
     id: "doc-004",
@@ -52,6 +55,7 @@ export const doctorSeed: Doctor[] = [
     availableDays: ["Mon", "Thu"],
     status: "on_leave",
     room: "C-002",
+    departmentId: "dep-003",
   },
   {
     id: "doc-005",
@@ -65,6 +69,7 @@ export const doctorSeed: Doctor[] = [
     availableDays: ["Wed", "Fri", "Sat"],
     status: "available",
     room: "B-110",
+    departmentId: "dep-005",
   },
   {
     id: "doc-006",
@@ -78,5 +83,6 @@ export const doctorSeed: Doctor[] = [
     availableDays: ["Tue", "Wed", "Thu"],
     status: "available",
     room: "C-115",
+    departmentId: "dep-006",
   },
 ];

@@ -170,43 +170,65 @@ export function DataTablePagination({
   total,
   pageSize,
   onPageChange,
+  onPageSizeChange,
+  pageSizeOptions = [8, 12, 16, 24],
 }: {
   page: number;
   totalPages: number;
   total: number;
   pageSize: number;
   onPageChange: (page: number) => void;
+  onPageSizeChange?: (size: number) => void;
+  pageSizeOptions?: number[];
 }) {
+  const safeTotalPages = Math.max(1, totalPages);
   const from = total === 0 ? 0 : (page - 1) * pageSize + 1;
   const to = Math.min(total, page * pageSize);
 
   return (
     <nav
       aria-label="Pagination"
-      className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:flex sm:justify-between"
+      className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
     >
       <p className="min-w-0 text-sm text-muted-foreground">
-        {from}–{to} of {total}
+        {from}–{to} sur {total}
       </p>
-      <div className="flex shrink-0 items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
+        {onPageSizeChange ? (
+          <label className="flex items-center gap-2 text-sm text-muted-foreground">
+            <span className="whitespace-nowrap">Par page</span>
+            <select
+              className="h-8 rounded-md border border-input bg-background px-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              value={pageSize}
+              aria-label="Nombre par page"
+              onChange={(event) => onPageSizeChange(Number(event.target.value))}
+            >
+              {pageSizeOptions.map((size) => (
+                <option key={size} value={size}>
+                  {size}
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : null}
         <Button
           variant="outline"
           size="sm"
           disabled={page <= 1}
           onClick={() => onPageChange(page - 1)}
         >
-          Previous
+          Précédent
         </Button>
-        <span className="text-sm text-muted-foreground">
-          {page} / {totalPages}
+        <span className="min-w-14 text-center text-sm tabular-nums text-muted-foreground">
+          {page} / {safeTotalPages}
         </span>
         <Button
           variant="outline"
           size="sm"
-          disabled={page >= totalPages}
+          disabled={page >= safeTotalPages}
           onClick={() => onPageChange(page + 1)}
         >
-          Next
+          Suivant
         </Button>
       </div>
     </nav>

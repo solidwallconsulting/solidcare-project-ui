@@ -52,14 +52,45 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [session]);
 
   const signIn = useCallback(async (email: string) => {
+    const { staffUserSeed } = await import("@/features/administration/mock-data");
+    const known = staffUserSeed.find(
+      (item) => item.email.toLowerCase() === email.trim().toLowerCase(),
+    );
+    if (known) {
+      const user: CurrentUser = {
+        id: known.id,
+        firstName: known.firstName,
+        lastName: known.lastName,
+        email: known.email,
+        role: known.role,
+      };
+      const next: Session = { user, accessToken: "mock-session-token" };
+      window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      setSession(next);
+      return user;
+    }
+
     const local = email.split("@")[0] ?? "user";
     const [first = "Clinic", last = "Manager"] = local.split(/[._-]/);
+    const lower = email.toLowerCase();
+    const role: AppRole =
+      lower.includes("nurse") || lower.includes("infirm")
+        ? "nurse"
+        : lower.includes("doctor") || lower.includes("medecin") || lower.includes("médecin")
+          ? "doctor"
+          : lower.includes("reception") || lower.includes("accueil")
+            ? "receptionist"
+            : lower.includes("team") || lower.includes("equipe") || lower.includes("équipe")
+              ? "team_leader"
+              : lower.includes("head") || lower.includes("chef") || lower.includes("dept")
+                ? "department_head"
+                : "admin";
     const user: CurrentUser = {
       id: "usr-current",
       firstName: first.charAt(0).toUpperCase() + first.slice(1),
       lastName: last.charAt(0).toUpperCase() + last.slice(1),
       email,
-      role: "admin",
+      role,
     };
     const next: Session = { user, accessToken: "mock-session-token" };
     window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(next));

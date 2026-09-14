@@ -16,7 +16,11 @@ export const doctorsApi = createResourceApi<Doctor, DoctorListQuery>("/doctors",
     const specialtyOk =
       !query.specialty || query.specialty === "all" || doctor.specialty === query.specialty;
     const statusOk = !query.status || query.status === "all" || doctor.status === query.status;
-    return specialtyOk && statusOk;
+    const departmentOk =
+      !query.departmentId ||
+      query.departmentId === "all" ||
+      doctor.departmentId === query.departmentId;
+    return specialtyOk && statusOk && departmentOk;
   },
 });
 

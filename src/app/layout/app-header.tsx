@@ -23,6 +23,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { useAuth } from "@/app/providers/auth-provider";
 import { initials, fullName } from "@/shared/utils/format";
 import { roleLabels } from "@/features/administration/types/user";
+import { AlertsBell } from "@/features/alerts/components/alerts-bell";
 
 function labelFor(segment: string): string {
   return segment.replace(/-/g, " ").replace(/^\w/, (char) => char.toUpperCase());
@@ -68,10 +69,11 @@ export function AppHeader() {
       </Breadcrumb>
 
       <div className="ml-auto flex items-center gap-1">
+        <AlertsBell />
         <ThemeToggle />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon" aria-label="Account menu">
+            <Button variant="ghost" size="icon" aria-label="Menu compte">
               <span className="flex size-7 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
                 {user ? initials(user.firstName, user.lastName) : <UserRound className="size-4" />}
               </span>
@@ -80,7 +82,7 @@ export function AppHeader() {
           <DropdownMenuContent align="end" className="w-56">
             <DropdownMenuLabel>
               <span className="block truncate text-sm font-medium">
-                {user ? fullName(user.firstName, user.lastName) : "Signed out"}
+                {user ? fullName(user.firstName, user.lastName) : "Déconnecté"}
               </span>
               <span className="block truncate text-xs font-normal text-muted-foreground">
                 {user ? `${roleLabels[user.role]} · ${user.email}` : ""}
@@ -88,7 +90,7 @@ export function AppHeader() {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
-              <Link to="/admin/settings">Clinic settings</Link>
+              <Link to="/admin/settings">Paramètres clinique</Link>
             </DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => {
@@ -97,7 +99,7 @@ export function AppHeader() {
               }}
             >
               <LogOut className="size-4" aria-hidden="true" />
-              Sign out
+              Déconnexion
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
