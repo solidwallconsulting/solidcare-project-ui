@@ -364,7 +364,7 @@ export function PatientsPage() {
               onValueChange={(nextView) => {
                 if (nextView) setView(nextView as PatientView);
               }}
-              variant="outline"
+              variant="ghost"
               size="sm"
               aria-label="Mode d'affichage des patients"
               className="shrink-0 rounded-md bg-muted/60 p-0.5"
@@ -527,7 +527,7 @@ export function PatientsPage() {
             </div>
           ) : null}
           {!listQuery.isLoading && !listQuery.isError && patients.length > 0 && view === "cards" ? (
-            <div className="grid gap-3 p-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
               {patients.map((patient) => (
                 <article
                   key={patient.id}
